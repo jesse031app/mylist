@@ -1,0 +1,53 @@
+#!name=RedNote
+
+#!desc=RedNote去广告
+
+# > https://github.com/ddgksf2013/ddgksf2013/tree/main
+
+[URL Rewrite]
+^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash _ reject-200
+^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/gslb _ reject-200
+^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/(tag\/)?ads _ reject-200
+^https?:\/\/[a-z]+\.xiaohongshu\.com\/v\d+\/stateReport _ reject-200
+^https?:\/\/[a-z]+\.xiaohongshu\.com\/data\/native\/matrix_switches _ reject-200
+^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/guide\/home_guide _ reject-200
+   
+ 
+[Script]
+rednote=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/redtube\?,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote2=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/live_photo\/save,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote3=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/tabfeed,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote4=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/video\/save,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote5=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/comment\/list,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote6=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\?,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote7=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote8=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/videofeed\?,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote9=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/feed\?,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote10=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/imagefeed,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote11=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote12=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/homefeed\?,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote13=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config\?,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+# > 小红书_热搜发现@ddgksf2013
+rednote14=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/hot_list,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+# > 小红书_默认填词@ddgksf2013
+rednote15=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/hint,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+rednote16=type=http-response,pattern=^https?:\/\/[a-z]+\.xiaohongshu\.com\/api\/sns\/v\d+\/homefeed\/categories,requires-body=1,script-path=https://github.com/ddgksf2013/Scripts/raw/master/redbook_json.js
+
+
+[MITM]
+hostname= %APPEND% xiaohongshu.com,www.xiaohongshu.com,*.xiaohongshu.com
